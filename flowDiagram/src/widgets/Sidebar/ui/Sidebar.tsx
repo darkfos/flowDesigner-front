@@ -10,7 +10,6 @@ export function Sidebar({IconSidebar, footerIcons, mainIcons}: SidebarProperties
             justify='space-between'
             align='center'
             className="bg-gray-100 w-[110px] rounded-lg h-[95%]"
-            style={{padding: '10px', margin: '20px'}}
         >
             <Flex direction="column" justify="center" align="center" gap="20" style={{ paddingTop: "20px" }}>
                 <Icon size="2xl" color="purple.500" style={{ padding: '1px' }} className="transition-all hover:bg-purple-200 hover:p-[5px] hover:rounded-lg cursor-pointer">
