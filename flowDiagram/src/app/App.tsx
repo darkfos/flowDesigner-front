@@ -6,10 +6,10 @@ import { IoMdStats } from "react-icons/io";
 import { IoMdSettings } from "react-icons/io";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { IoMdLogOut } from "react-icons/io";
+import { Flex } from "@chakra-ui/react";
 
 import { Sidebar } from "@/widgets/Sidebar";
-
-import { Flex } from "@chakra-ui/react";
+import { PageContent } from "@/shared/ui/PageContent";
 
 function App() {
     return (
@@ -31,7 +31,9 @@ function App() {
                         ]
                     }
                 />
-                <Outlet />
+                <PageContent>
+                    <Outlet />
+                </PageContent>
             </Flex>
         </main>
     )
