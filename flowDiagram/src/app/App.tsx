@@ -25,20 +25,31 @@ function App() {
           mainIcons={[
             {
               IconPath: (<RiAccountCircleFill />) as JSX.Element,
-              urlPath: "/profile",
+              urlPath: '/profile',
+                content: 'Страница профиля'
             },
-            { IconPath: (<IoMdStats />) as JSX.Element, urlPath: "/stats" },
+            {
+                IconPath: (<IoMdStats />) as JSX.Element,
+                urlPath: '/stats',
+                content: 'Страница статистики'
+            },
             {
               IconPath: (<IoMdSettings />) as JSX.Element,
-              urlPath: "/settings",
+              urlPath: '/settings',
+                content: 'Страница настроек'
             },
           ]}
           footerIcons={[
             {
               IconPath: (<IoIosInformationCircleOutline />) as JSX.Element,
               urlPath: "/docs",
+                content: 'Страница с документацией'
             },
-            { IconPath: (<IoMdLogOut />) as JSX.Element, urlPath: "/logout" },
+            {
+                IconPath: (<IoMdLogOut />) as JSX.Element,
+                urlPath: '/logout',
+                content: 'Выход из сессии'
+            },
           ]}
         />
         <PageContent>
