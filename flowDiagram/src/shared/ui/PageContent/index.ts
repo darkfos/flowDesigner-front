@@ -1,1 +1,1 @@
-export * from './ui/PageContent.tsx'
+export * from "./ui/PageContent.tsx";

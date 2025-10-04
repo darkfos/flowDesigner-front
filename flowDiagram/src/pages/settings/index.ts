@@ -1,2 +1,2 @@
-import SettingsPage from './ui/Settings.tsx'
-export default SettingsPage
+import SettingsPage from "./ui/Settings.tsx";
+export default SettingsPage;

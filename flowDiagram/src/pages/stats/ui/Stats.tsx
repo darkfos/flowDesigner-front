@@ -1,7 +1,3 @@
 export default function StatsPage() {
-    return (
-        <section>
-            Stats page
-        </section>
-    )
+  return <section>Stats page</section>;
 }
