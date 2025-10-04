@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { Flex, Icon } from '@chakra-ui/react'
 
 import type { SidebarProperties } from "@/widgets/Sidebar";
@@ -12,15 +13,19 @@ export function Sidebar({IconSidebar, footerIcons, mainIcons}: SidebarProperties
             className="bg-gray-100 w-[110px] rounded-lg h-[95%]"
         >
             <Flex direction="column" justify="center" align="center" gap="20" style={{ paddingTop: "20px" }}>
-                <Icon size="2xl" color="purple.500" style={{ padding: '1px' }} className="transition-all hover:bg-purple-200 hover:p-[5px] hover:rounded-lg cursor-pointer">
-                    { IconSidebar}
-                </Icon>
+                <Link to='/'>
+                    <Icon size="2xl" color="purple.500" style={{ padding: '1px' }} className="transition-all hover:bg-purple-200 hover:p-[5px] hover:rounded-lg cursor-pointer">
+                        { IconSidebar}
+                    </Icon>
+                </Link>
                 <Flex direction="column" justify="center" align="center" gap="8">
                     {mainIcons?.map(icon => {
                         return (
-                            <Icon size="2xl" style={{ padding: '1px' }} className="transition-all hover:bg-purple-200 hover:rounded-lg cursor-pointer">
-                                {icon.IconPath}
-                            </Icon>
+                            <Link to={icon.urlPath}>
+                                <Icon size="2xl" style={{ padding: '1px' }} className="transition-all hover:bg-purple-200 hover:rounded-lg cursor-pointer">
+                                    {icon.IconPath}
+                                </Icon>
+                            </Link>
                         )
                     })}
                 </Flex>
@@ -28,9 +33,11 @@ export function Sidebar({IconSidebar, footerIcons, mainIcons}: SidebarProperties
             <Flex direction="column" justify="center" align="center" gap="5" style={{ paddingBottom: '20px' }}>
                 {footerIcons?.map(icon => {
                     return (
-                        <Icon size="2xl" style={{ padding: '1px' }} className="transition-all hover:bg-purple-200 hover:rounded-lg cursor-pointer">
-                            {icon.IconPath}
-                        </Icon>
+                        <Link to={icon.urlPath}>
+                            <Icon size="2xl" style={{ padding: '1px' }} className="transition-all hover:bg-purple-200 hover:rounded-lg cursor-pointer">
+                                {icon.IconPath}
+                            </Icon>
+                        </Link>
                     )
                 })}
             </Flex>
