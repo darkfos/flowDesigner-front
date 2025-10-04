@@ -1,10 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { Provider } from '@/components/ui/provider.tsx'
+import '@/app/index.css'
+import App from '@/app/App.tsx'
 
 createRoot(document.getElementById('flow')!).render(
   <StrictMode>
-    <App />
+      <Provider>
+          <App />
+      </Provider>
   </StrictMode>,
 )
