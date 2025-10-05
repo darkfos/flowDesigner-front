@@ -3,6 +3,7 @@ import {
   BackgroundVariant,
   Controls,
   ReactFlow,
+    MiniMap
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
@@ -13,6 +14,7 @@ export default function MainPage() {
       <ReactFlow>
         <Background variant={BackgroundVariant.Dots} />
         <Controls />
+          <MiniMap />
       </ReactFlow>
     </section>
   );

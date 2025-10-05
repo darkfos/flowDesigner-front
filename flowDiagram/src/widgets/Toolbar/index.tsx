@@ -6,7 +6,7 @@ import { toolbarItems } from "@/shared/utils/toolbar.ts";
 export function Toolbar() {
 
     return (
-        <div className="w-full h-[100%] overflow-hidden">
+        <div className="w-full h-[100%] overflow-y-scroll">
             <Flex direction='row' align='center' style={{ padding: '15px'}} gap='2'>
                 <Icon size='lg' color='purple.700'>
                     <CgToolbarTop />
@@ -30,7 +30,15 @@ export function Toolbar() {
                                 </Accordion.ItemTrigger>
                                 <Accordion.ItemContent>
                                     <Accordion.ItemBody>
-                                        { item.Component }
+                                        <Flex direction='column' gap='4' justify='center' align='center'>
+                                            { item.components.map((Component, indexComponent) => {
+                                                return (
+                                                    <div className='shadow-md' style={{ padding: '5px'}} key={indexComponent}>
+                                                        <Component />
+                                                    </div>
+                                                )
+                                            }) }
+                                        </Flex>
                                     </Accordion.ItemBody>
                                 </Accordion.ItemContent>
                             </Accordion.Item>

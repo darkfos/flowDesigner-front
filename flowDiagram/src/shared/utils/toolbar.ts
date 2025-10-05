@@ -1,25 +1,41 @@
 import { JSX } from 'react'
 
+import {
+    FlowShadowRectangle,
+    FlowTableStandard,
+    FlowRectangle,
+    FlowCircle,
+    FlowOval,
+    FlowDataStore
+} from "@/widgets/Toolbar/tools";
+
 type ToolbarItem = {
     title: string,
     value: string,
-    Component: JSX.Element
+    components: Array<JSX.Element>
 }
 
 export const toolbarItems: Array<ToolbarItem> = [
     {
         title: 'UML Схемы',
         value: 'UML',
-        Component: ''
+        components: []
     },
     {
         title: 'ERD Схемы',
         value: 'ERD',
-        Component: ''
+        components: []
     },
     {
         title: 'DataFlow Схемы',
         value: 'DataFlow',
-        Component: ''
+        components: [
+            FlowShadowRectangle as JSX.Element,
+            FlowDataStore as JSX.Element,
+            FlowRectangle as JSX.Element,
+            FlowCircle as JSX.Element,
+            FlowOval as JSX.Element,
+            FlowTableStandard as JSX.Element
+        ]
     }
 ]
