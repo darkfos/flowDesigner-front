@@ -1,17 +1,24 @@
 import { JSX } from "react";
 import { Outlet } from "react-router";
-import { BsFillDiagram2Fill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { BsFillDiagram2Fill, BsReverseLayoutSidebarReverse } from "react-icons/bs";
 import { RiAccountCircleFill } from "react-icons/ri";
-import { IoMdStats } from "react-icons/io";
-import { IoMdSettings } from "react-icons/io";
-import { IoIosInformationCircleOutline } from "react-icons/io";
-import { IoMdLogOut } from "react-icons/io";
-import { Flex } from "@chakra-ui/react";
+import { IoMdLogOut, IoMdStats, IoMdSettings, IoIosInformationCircleOutline } from "react-icons/io";
+import { Flex, Icon } from "@chakra-ui/react";
 
 import { Sidebar } from "@/widgets/Sidebar";
 import { PageContent } from "@/shared/ui/PageContent";
 
+import { actions } from "@/shared/stores/slices/sidebar.slice.ts"
+
 function App() {
+
+    const dispatch = useDispatch();
+
+    const toggleSideBar = () => {
+        dispatch(actions.toggleSidebar())
+    }
+
   return (
     <main className="h-screen overflow-hidden">
       <Flex
@@ -20,38 +27,45 @@ function App() {
         className="h-screen"
         style={{ padding: "10px", margin: "20px" }}
       >
-        <Sidebar
-          IconSidebar={(<BsFillDiagram2Fill />) as JSX.Element}
-          mainIcons={[
-            {
-              IconPath: (<RiAccountCircleFill />) as JSX.Element,
-              urlPath: '/profile',
-                content: 'Страница профиля'
-            },
-            {
-                IconPath: (<IoMdStats />) as JSX.Element,
-                urlPath: '/stats',
-                content: 'Страница статистики'
-            },
-            {
-              IconPath: (<IoMdSettings />) as JSX.Element,
-              urlPath: '/settings',
-                content: 'Страница настроек'
-            },
-          ]}
-          footerIcons={[
-            {
-              IconPath: (<IoIosInformationCircleOutline />) as JSX.Element,
-              urlPath: "/docs",
-                content: 'Страница с документацией'
-            },
-            {
-                IconPath: (<IoMdLogOut />) as JSX.Element,
-                urlPath: '/logout',
-                content: 'Выход из сессии'
-            },
-          ]}
-        />
+      <Flex direction='row' gap='5' justify='center'>
+          <Sidebar
+              IconSidebar={(<BsFillDiagram2Fill />) as JSX.Element}
+              mainIcons={[
+                  {
+                      IconPath: (<RiAccountCircleFill />) as JSX.Element,
+                      urlPath: '/profile',
+                      content: 'Страница профиля'
+                  },
+                  {
+                      IconPath: (<IoMdStats />) as JSX.Element,
+                      urlPath: '/stats',
+                      content: 'Страница статистики'
+                  },
+                  {
+                      IconPath: (<IoMdSettings />) as JSX.Element,
+                      urlPath: '/settings',
+                      content: 'Страница настроек'
+                  },
+              ]}
+              footerIcons={[
+                  {
+                      IconPath: (<IoIosInformationCircleOutline />) as JSX.Element,
+                      urlPath: "/docs",
+                      content: 'Страница с документацией'
+                  },
+                  {
+                      IconPath: (<IoMdLogOut />) as JSX.Element,
+                      urlPath: '/logout',
+                      content: 'Выход из сессии'
+                  },
+              ]}
+          />
+          <div>
+              <Icon size='lg' style={{ marginTop: '10px', padding: '2px' }} className='cursor-pointer transition-all hover:bg-purple-100 h-[5%]' onClick={toggleSideBar}>
+                  <BsReverseLayoutSidebarReverse />
+              </Icon>
+          </div>
+      </Flex>
         <PageContent>
           <Outlet />
         </PageContent>
