@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+::selection {
+    background-color: theme('colors.purple.100');
+}
