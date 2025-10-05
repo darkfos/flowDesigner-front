@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { useDispatch } from "react-redux";
 import { BsFillDiagram2Fill, BsReverseLayoutSidebarReverse } from "react-icons/bs";
 import { RiAccountCircleFill } from "react-icons/ri";
@@ -14,6 +14,7 @@ import { actions } from "@/shared/stores/slices/sidebar.slice.ts"
 function App() {
 
     const dispatch = useDispatch();
+    const location = useLocation();
 
     const toggleSideBar = () => {
         dispatch(actions.toggleSidebar())
@@ -60,11 +61,13 @@ function App() {
                   },
               ]}
           />
-          <div>
-              <Icon size='lg' style={{ marginTop: '10px', padding: '2px' }} className='cursor-pointer transition-all hover:bg-purple-100 h-[5%]' onClick={toggleSideBar}>
-                  <BsReverseLayoutSidebarReverse />
-              </Icon>
-          </div>
+          { location.pathname === '/' ? (
+              <div>
+                  <Icon size='lg' style={{ marginTop: '10px', padding: '2px' }} className='cursor-pointer transition-all hover:bg-purple-100 h-[5%]' onClick={toggleSideBar}>
+                      <BsReverseLayoutSidebarReverse />
+                  </Icon>
+              </div>
+          ) : null}
       </Flex>
         <PageContent>
           <Outlet />
